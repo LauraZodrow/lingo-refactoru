@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	h1 Translation Form
+	form(method="post" action="/translateSubmit")
+		input(type="text" name="word" placeholder="Language of Word to Translate")
+		input(type="text" name="languageFrom" placeholder="Language to Translate Word")
+		input(type="text" name="languageTo" placeholder="Word to Translate")
+		input(type="submit")
+
+	ul 
+		li
+			for word in words 
+				h3= word.word
+				p= word.languageFrom
+				p= word.languageTo
+				a(href="/delete/#{word._id}") Delete
