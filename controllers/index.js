@@ -19,16 +19,16 @@ var indexController = {
 		var word = new Words(wordsData);
 		word.save(function(err, result) {
 			beglobal.translations.translate(
-			  {text: wordsData.word, from: wordsData.languageFrom, to: wordsData.languageTo},
+			  {to: result.languageTo, from: result.languageFrom, text: result.word},
 			  function(err, results) {
 			    if (err) {
 			      return console.log(err);
-			    }
+			    } else {
+					word.resultTran.push(results.translation);
+					console.log(word.resultTran);
+			    };
 				res.redirect('/');
-			    console.log('Results:', results);
-			    console.log('word: ', word);
-			    console.log('wordsData: ', wordsData);
-			    console.log('wordsData.word: ', wordsData.word);
+				return word.resultTran;
 			  }
 			);
 		});
