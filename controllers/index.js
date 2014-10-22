@@ -7,9 +7,11 @@ var beglobal = new BeGlobal.BeglobalAPI({
 
 var indexController = {
 	index: function(req, res) {
-		Words.find({}, function(err, results){
+		var getTranslation = req.params.translation;
+			Words.find({}, function(err, results){
 			res.render('index', {
-				words: results
+				words: results,
+				translation: req.params
 			});
 		});
 	},
@@ -17,6 +19,7 @@ var indexController = {
 	translateForm: function(req, res){
 		var wordsData = req.body;
 		var word = new Words(wordsData);
+		// console.log(word);
 		word.save(function(err, result) {
 			beglobal.translations.translate(
 			  {to: result.languageTo, from: result.languageFrom, text: result.word},
@@ -24,13 +27,12 @@ var indexController = {
 			    if (err) {
 			      return console.log(err);
 			    } else {
-					word.resultTran.push(results.translation);
-					console.log(word.resultTran);
+			    	console.log(results.translation);
+					res.redirect('/' + results.translation);
 			    };
-				res.redirect('/');
-				return word.resultTran;
 			  }
 			);
+
 		});
 	},
 
@@ -42,3 +44,5 @@ var indexController = {
 };
 
 module.exports = indexController;
+
+//pass directly in new word pass in translation of the word to put directly into object

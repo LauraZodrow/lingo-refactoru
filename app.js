@@ -13,6 +13,9 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', indexController.index);
+// Where the params will go
+app.get('/:translation', indexController.index);
+
 app.get('/delete/:id', indexController.deleteWord);
 app.post('/translateSubmit', indexController.translateForm);
 
