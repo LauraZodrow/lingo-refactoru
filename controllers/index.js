@@ -46,3 +46,4 @@ var indexController = {
 module.exports = indexController;
 
 //pass directly in new word pass in translation of the word to put directly into object
+//add translation array to your scheme
