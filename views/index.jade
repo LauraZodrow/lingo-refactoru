@@ -1,24 +1,9 @@
 extends layout
 
 block content
-	button(a href="/translate") Translate 
-	button Quiz
-	button Progress
-
-	h1 Translation Form
-	form#translateForm(method="post" action="/translateSubmit")
-		input(type="text" name="word" placeholder="Word")
-		input(type="text" name="languageFrom" placeholder="Language from")
-		input(type="text" name="languageTo" placeholder="Language to")
-		input(type="submit")
-
-	p= translation.translation
-
-	//- ul.form-script 
-	//- 	li
-	//- 		for word in words 
-	//- 			h3= word.word
-	//- 			p= word.languageFrom
-	//- 			p= word.languageTo
-	//- 			a(href="/delete/#{word._id}") Delete
-			
+	link(rel="stylesheet", href="/stylesheets/main.css")
+	.row
+		.page-nav.col-md-6.col-md-offset-4
+			button.btn.btn-index: a(href="/translate") Translate 
+			button.btn.btn-quiz: a(href="/view/quiz") Quiz
+			button.btn.btn-progress: a(href="/progress") Progress

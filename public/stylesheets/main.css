@@ -1,0 +1,35 @@
+  html, body {
+  	height: 100%;
+  }
+
+  body {
+	background-image: url('../images/cool-picture.jpg');
+  }
+
+  img {
+  	max-width: 100%
+  }
+
+  a {
+  	text-decoration: none;
+  	color: snow;
+  }  
+
+  a:-webkit-any-link {
+	color: snow;
+  } 
+
+  .page-nav {
+  	top: 250px;
+  }
+  .btn {
+  	border-radius: 0px;
+  	border: 2px solid snow;
+  	opacity: 0.8;
+  	color: snow;
+  	margin: 10px;
+  }
+
+
+
+

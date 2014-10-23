@@ -7,13 +7,20 @@ var beglobal = new BeGlobal.BeglobalAPI({
 
 var indexController = {
 	index: function(req, res) {
+		res.render('index');
+	},
+
+	translate: function(req, res){
 		var getTranslation = req.params.translation;
 			Words.find({}, function(err, results){
-			res.render('index', {
+			res.render('translate', {
 				words: results,
 				translation: req.params
 			});
 		});
+	},
+	progress: function(req, res){
+		res.render('progress');
 	},
 
 	translateForm: function(req, res){
@@ -25,14 +32,12 @@ var indexController = {
 			  {to: result.languageTo, from: result.languageFrom, text: result.word},
 			  function(err, results) {
 			    if (err) {
-			      return console.log(err);
+			    	return console.log(err);
 			    } else {
-			    	console.log(results.translation);
-					res.redirect('/' + results.translation);
+			    	res.redirect('/' + results.translation);
 			    };
 			  }
 			);
-
 		});
 	},
 

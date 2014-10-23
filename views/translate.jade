@@ -1,16 +1,15 @@
 extends layout
 
 block content
+	button: a(href="/translate") Translate 
+	button: a(href="/quiz") Quiz
+	button Progress
+
 	h1 Translation Form
-	form(method="post" action="/translateSubmit")
-		input(type="text" name="word" placeholder="Language of Word to Translate")
-		input(type="text" name="languageFrom" placeholder="Language to Translate Word")
-		input(type="text" name="languageTo" placeholder="Word to Translate")
+	form#translateForm(method="post" action="/translateSubmit")
+		input(type="text" name="word" placeholder="Word")
+		input(type="text" name="languageFrom" placeholder="Language from")
+		input(type="text" name="languageTo" placeholder="Language to")
 		input(type="submit")
 
-	ul 
-		li
-			for word in words 
-				h3= word.word
-				p= word.languageFrom
-				p= word.languageTo
+	p= translation.translation

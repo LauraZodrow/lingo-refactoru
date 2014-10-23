@@ -1,7 +1,9 @@
-/*$(function(){
-	$.get('/translateSubmit', {}, function()) 
-	$('#translateForm').on('submit', function(e) {
+$(function(){
+	// var quizSubmit = $('#quiz-submit')
+	$(document).on('click', '#quiz-submit', function(e){
 		e.preventDefault();
-		console.log('jello');
+		// var langVal = $('.lang-val').val();
+		$('#quizModal').modal('show');
+		// if(langVal === to.name){}
 	})
-});*/
+});
