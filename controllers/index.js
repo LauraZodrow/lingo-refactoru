@@ -1,4 +1,5 @@
 var Words = require('../models/words.js');
+var Quiz = require('../models/quiz.js');
 var BeGlobal = require('node-beglobal');
 
 var beglobal = new BeGlobal.BeglobalAPI({

@@ -1,5 +1,7 @@
 var Words = require('../models/words.js');
 var BeGlobal = require('node-beglobal');
+var randomWords = require('random-words');
+var Quiz = require('../models/quiz.js');
 
 var beglobal = new BeGlobal.BeglobalAPI({
 	api_token: 'kXo%2FkpxT19pyjQrlR56JGA%3D%3D'
@@ -7,20 +9,13 @@ var beglobal = new BeGlobal.BeglobalAPI({
 
 var apiController = {
 	quiz: function(req, res){
-		res.render('quiz')
+		res.render('quiz');
+		console.log(randomWords(5));
 	},
 
-	// quizTest: function(req, res){
-	// 	beglobal.translations.translate(
-	// 	  {to: result.name},
-	// 		function(err, results) {
-	// 		    if (err) {
-	// 		    	return console.log(err);
-	// 		    } else {
-	// 		    	res.redirect('/' + results.translation);
-	// 		    };	
-	// 	console.log(result.name);
-	// });
+	clickSubmit: function(req, res) {
+		res.send('hello');
+	}
 }
 
 module.exports = apiController;

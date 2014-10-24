@@ -10,6 +10,7 @@ block content
 	form
 		input(class="lang-val" type="text" name="language" placeholder="What language do you study?")
 		input#quiz-submit(type="submit")
+		p #{clickSubmit}
 
 	#quizModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
 		.modal-dialog
@@ -20,7 +21,7 @@ block content
 						span.sr-only Close
 					h4#myModalLabel.modal-title English
 				.moday-body
-					| Hello
+					p #{clickSubmit}
 				.modal-footer
 					button.btn.btn-default(type='button', data-dismiss='modal') Close
 					button.btn.btn-primary(type='button') Submit

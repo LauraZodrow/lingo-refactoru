@@ -6,9 +6,10 @@ var mongoose = require('mongoose');
 
 
 mongoose.connect('mongodb://localhost/translate');
+require('./models/seeds/quizSeed.js');
+
 var randomWords = require('random-words');
 
-require('./models/seeds/quizSeed.js');
 
 var app = express();
 app.set('view engine', 'jade');
@@ -21,6 +22,7 @@ app.get('/translate', indexController.translate);
 app.get('/progress', indexController.progress);
 // Where the params will go
 app.get('/:translation', indexController.translate);
+app.get('/quiz', apiController.clickSubmit);
 
 
 app.get('/delete/:id', indexController.deleteWord);
